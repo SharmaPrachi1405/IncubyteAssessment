@@ -1,4 +1,8 @@
 
+from ast import Num
+from os import remove
+
+
 class String_Calculator:
     def add(param: str) -> int:
         param = normalize_delimiters(param)
@@ -21,5 +25,11 @@ class String_Calculator:
         if any(num < 0 for num in param):
             raise ValueError("negatives not allowed " + str([num for num in param if num < 0]))
 
+    def Multiple_Negative(param: str):
+        if any(num < 0 for num in param):
+            return param
 
+    def GreaterThan_Num(param: str):
+        if(num > 1000 for num in param):
+            remove(num)
 

@@ -1,4 +1,6 @@
+from audioop import add
 import unittest
+from unittest import result
 
 from StringCalculator import String_Calculator
 
@@ -28,3 +30,13 @@ def test_string_calc_negative_number_exception_check():
         add("1\n-2,3")
     except ValueError as e:
         assert str(e) == "negatives not allowed [-2]"
+
+def test_string_multiple_negatives():
+    try:
+        add("1\n-2,1\n-4")
+    except ValueError as e:
+        assert str(e) == "Multiple Negatives"
+
+def test_string_greater_then():
+    result = add("2,1001")
+    assert result == 2, "String calculator should return 2 for \"2,1001\" string "
