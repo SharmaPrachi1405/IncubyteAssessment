@@ -1,18 +1,18 @@
+import unittest
+
+
 class String_Calculator:
-
-    def add(word):
-        if(len(word) == 0):
-            return 0
-        if(',' in word):
-            return 3 
-
+    def add(param: str) -> int:
+        param = normalize_delimiters(param)
+        if param:
+            result = add_numbers(param)
+            return result
         else:
-            return int(word)
+            return len(param)
 
-        para_list = [-1, 0]
-        for i in para_list:
-            if(i<0):
-                return 0
+    def normalize_delimiters(param: str) -> str:
+        param = normalize_custom_delimiter(param)
+        return param.replace("\n", ",").strip(',')
 
 
 
